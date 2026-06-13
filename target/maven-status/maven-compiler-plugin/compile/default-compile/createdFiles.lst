@@ -1,1 +1,6 @@
 com\ulp\revendedora.class
+com\ulp\Producto.class
+com\ulp\Pedido.class
+com\ulp\CajaPedido.class
+com\ulp\Campania.class
+com\ulp\DetalleCaja.class
