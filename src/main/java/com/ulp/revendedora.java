@@ -1,5 +1,6 @@
-
 package com.ulp;
+
+import java.util.ArrayList;
 
 /**
  *
@@ -9,13 +10,22 @@ public class revendedora {
 
     private int nroCuenta;
     private double saldo;
+    private ArrayList<Pedido> pedidos;
 
     public revendedora() {
+        pedidos = new ArrayList<>();
     }
 
     public revendedora(int nroCuenta, double saldo) {
         this.nroCuenta = nroCuenta;
         this.saldo = saldo;
+        pedidos = new ArrayList<>();
+    }
+
+    public revendedora(int nroCuenta, double saldo, ArrayList<Pedido> pedidos) {
+        this.nroCuenta = nroCuenta;
+        this.saldo = saldo;
+        this.pedidos = pedidos;
     }
 
     public int getNroCuenta() {
@@ -82,5 +92,29 @@ public class revendedora {
         rev.depositarDinero(monto);
 
         System.out.println("Transferencia exitosa");
+    }
+
+    public ArrayList<Pedido> getPedidos() {
+        return pedidos;
+    }
+
+    public void agregarPedido(Pedido pedido) {
+        pedidos.add(pedido);
+    }
+
+    public boolean hayPedido(Campania campania) {
+        for (Pedido pedido : pedidos) {
+            if (pedido.hayPedido(campania)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public void listarPedidos() {
+        for (Pedido pedido : pedidos) {
+            System.out.println(pedido);
+        }
     }
 }
